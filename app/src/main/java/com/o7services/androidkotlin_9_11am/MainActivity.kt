@@ -12,7 +12,9 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    var btn:Button?=null
+    var btn: Button? = null
+    var btnRelative: Button? = null
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +22,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show()
-        btn=findViewById(R.id.btnWelcome)
+        btn = findViewById(R.id.btnWelcome)
+        btnRelative = findViewById(R.id.RelativeLayout)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -28,10 +31,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn?.setOnClickListener {
-            var intent=Intent(this, SecondActivity::class.java)
+//            var intent = Intent(this, SecondActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+//            startActivity(intent)
+            Toast.makeText(this, "Welcome To my App", Toast.LENGTH_SHORT).show()
+        }
+        btnRelative?.setOnClickListener {
+            var intent = Intent(this, SecondActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
-           Toast.makeText(this,"Welcome To my App",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Welcome To my App", Toast.LENGTH_SHORT).show()
         }
 
     }

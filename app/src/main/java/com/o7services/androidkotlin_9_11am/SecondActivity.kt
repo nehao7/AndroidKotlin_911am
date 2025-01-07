@@ -19,13 +19,13 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
-        val btnBack = findViewById<Button>(R.id.btnBack)
-
-        btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            startActivity(intent)
-        }
+//        val btnBack = findViewById<Button>(R.id.btnBack)
+//
+//        btnBack.setOnClickListener {
+//            val intent = Intent(this, MainActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+//            startActivity(intent)
+//        }
 
     }
 }

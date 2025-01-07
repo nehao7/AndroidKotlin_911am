@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="#D8F1EF"
     tools:context=".SecondActivity">
 
-    <Button
-        android:id="@+id/btnBack"
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/image"
+
+        />
+    <TextView
+        android:id="@+id/tv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background=""
-        android:text="Back"/>
-</LinearLayout>
+        android:text="@string/my_textview"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:layout_above="@id/edt1"
+        android:background="@color/black"
+        />
+    <EditText
+        android:id="@+id/edt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_add"
+        android:drawablePadding="2dp"
+        android:layout_above="@id/btn"
+        android:hint="@string/abc"
+
+        />
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/click"/>
+</RelativeLayout>

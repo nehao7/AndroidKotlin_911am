@@ -9,6 +9,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+    android:id="@+id/imageView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:srcCompat="@tools:sample/avatars" />
+
     <EditText
         android:id="@+id/edtInput"
         android:layout_width="match_parent"
@@ -29,10 +35,13 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <ImageView
-        android:id="@+id/imageView"
+<Button
+        android:id="@+id/RelativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:text="RelativeLayout" />
+
+
+
 
 </LinearLayout>
