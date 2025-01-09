@@ -6,43 +6,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ImplicitIntentActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <TextView
+        android:id="@+id/tvData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <EditText
-        android:id="@+id/edtInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your name " />
+        android:layout_margin="20dp"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:text="Data"/>
 
     <Button
-        android:id="@+id/btnWelcome"
+        android:id="@+id/btnUrl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome" />
-
-    <Button
-        android:id="@+id/btnSave"
+        android:text="Open Url"
+        />
+ <Button
+     android:id="@+id/btnCall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
-
-    <Button
-        android:id="@+id/RelativeLayout"
+        android:text="Call"
+        />
+ <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RelativeLayout" />
-
-    <Button
-        android:id="@+id/btnImplicit"
+        android:text=""
+        />
+ <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RelativeLayout" />
-
+        android:text=""
+        />
 
 </LinearLayout>

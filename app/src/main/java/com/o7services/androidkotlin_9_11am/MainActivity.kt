@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     var btn: Button? = null
     var btnRelative: Button? = null
+    var input: EditText? = null
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show()
         btn = findViewById(R.id.btnWelcome)
         btnRelative = findViewById(R.id.RelativeLayout)
+        input = findViewById(R.id.edtInput)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -31,16 +34,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         btn?.setOnClickListener {
-//            var intent = Intent(this, SecondActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-//            startActivity(intent)
-            Toast.makeText(this, "Welcome To my App", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+            var intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
         btnRelative?.setOnClickListener {
             var intent = Intent(this, SecondActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
-            Toast.makeText(this, "Welcome To my App", Toast.LENGTH_SHORT).show()
+        }
+        findViewById<Button>(R.id.btnImplicit).setOnClickListener {
+            var text=input?.text.toString()
+            var intent = Intent(this, ImplicitIntentActivity::class.java)
+            intent.putExtra("data", input?.text.toString())
+            intent.putExtra("data",text)
+            startActivity(intent)
         }
 
     }
