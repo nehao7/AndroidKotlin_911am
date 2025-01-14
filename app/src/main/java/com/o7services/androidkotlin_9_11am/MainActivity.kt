@@ -10,8 +10,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
 
     var btn: Button? = null
     var btnRelative: Button? = null
@@ -21,7 +23,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show()
         btn = findViewById(R.id.btnWelcome)
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
+
         findViewById<Button>(R.id.btnImplicit).setOnClickListener {
             var text=input?.text.toString()
             var intent = Intent(this, ImplicitIntentActivity::class.java)
