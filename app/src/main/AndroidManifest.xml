@@ -15,6 +15,8 @@
         <activity
             android:name=".jetpacknav.NavControllerActivity"
             android:exported="false" />
+        <activity android:name=".AlertDialogActivity"
+            android:exported="false"/>
         <activity
             android:name=".SplashActivity"
             android:exported="true">

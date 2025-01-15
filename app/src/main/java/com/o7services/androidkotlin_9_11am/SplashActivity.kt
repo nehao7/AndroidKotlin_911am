@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        
+
         Handler(Looper.getMainLooper()).postDelayed(
             {
             var intent = Intent(this,MainActivity::class.java)

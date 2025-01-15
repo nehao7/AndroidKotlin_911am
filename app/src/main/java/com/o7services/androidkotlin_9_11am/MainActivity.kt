@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         }
         btnRelative?.setOnClickListener {
             var intent = Intent(this, SecondActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
         }
 
@@ -54,7 +53,9 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("data",text)
             startActivity(intent)
         }
-
+        binding.btnAlertDialog.setOnClickListener {
+            startActivity(Intent(this,AlertDialogActivity::class.java))
+        }
     }
 
     override fun onStart() {
