@@ -82,7 +82,56 @@ class AlertDialogActivity : AppCompatActivity() {
             }
         }
 
-   
+        binding.btnMultipleChoice.setOnClickListener {
+            AlertDialog.Builder(this).apply {
+                setTitle("This is Alert Dialog")
+                setMultiChoiceItems(list,checklist){_,which,isChecked->
+                    checklist.set(which,isChecked)
+                    Toast.makeText(
+                        this@AlertDialogActivity,
+                        list[which].toString(), Toast.LENGTH_LONG
+                    ).show()
+
+                }
+                setNegativeButton("No") { _, _ ->
+                }
+                setPositiveButton("yes") { _, _ -> }
+                setCancelable(true)
+                show()
+            }
+        }
+
+        binding.btnCustomDialog.setOnClickListener {
+            var dialog = Dialog(this)
+            dialog.setContentView(R.layout.custom_layout)
+            var btn=dialog.findViewById<Button>(R.id.btnCancel)
+
+            dialog.window?.setLayout(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+            dialog.show()
+            btn.setOnClickListener{
+                dialog.dismiss()
+            }
+        }
+
+        binding.btnDatePicker.setOnClickListener {
+
+            DatePickerDialog(
+                this,
+                { _, year, month, dateOfMonth ->
+                    Log.e("date", "picked Date is $year $month $dateOfMonth")
+                    val calendar = Calendar.getInstance()
+                    calendar.set(year, month, dateOfMonth)
+                    var formattedDate = simpleDateFormat.format(calendar.time)
+                    binding.btnDatePicker.setText(formattedDate)
+                },
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DATE),
+            ).show()
+        }
 
     }
 }
