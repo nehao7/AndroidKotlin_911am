@@ -56,6 +56,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnAlertDialog.setOnClickListener {
             startActivity(Intent(this,AlertDialogActivity::class.java))
         }
+        binding.btnSpinnerActivity.setOnClickListener {
+            startActivity(Intent(this,SpinnerActivity::class.java))
+        }
     }
 
     override fun onStart() {

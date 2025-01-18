@@ -17,6 +17,9 @@
             android:exported="false" />
         <activity android:name=".AlertDialogActivity"
             android:exported="false"/>
+          <activity android:name=".SpinnerActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">
