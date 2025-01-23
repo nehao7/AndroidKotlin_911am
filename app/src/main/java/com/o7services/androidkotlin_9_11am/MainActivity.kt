@@ -14,7 +14,6 @@ import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
-
     var btn: Button? = null
     var btnRelative: Button? = null
     var input: EditText? = null
@@ -58,6 +57,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnSpinnerActivity.setOnClickListener {
             startActivity(Intent(this,SpinnerActivity::class.java))
+        }
+        binding.btnListViewActivity.setOnClickListener {
+            startActivity(Intent(this,ListActivity::class.java))
         }
     }
 

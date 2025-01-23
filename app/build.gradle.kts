@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "com.o7services.androidkotlin_9_11am"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 

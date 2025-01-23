@@ -10,8 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.o7services.androidkotlin4_6pmmcpc.R
-import com.o7services.androidkotlin4_6pmmcpc.databinding.ActivitySpinnerBinding
+import com.o7services.androidkotlin_9_11am.databinding.ActivitySpinnerBinding
 
 class SpinnerActivity : AppCompatActivity() {
     lateinit var binding: ActivitySpinnerBinding

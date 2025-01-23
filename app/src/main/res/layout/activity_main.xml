@@ -53,7 +53,13 @@
         android:id="@+id/btnSpinnerActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alert Dialog" />
+        android:text="Spinner Activity" />
+
+ <Button
+        android:id="@+id/btnListViewActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Activity" />
 
 
 </LinearLayout>
