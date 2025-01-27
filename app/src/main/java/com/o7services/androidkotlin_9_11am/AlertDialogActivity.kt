@@ -104,14 +104,14 @@ class AlertDialogActivity : AppCompatActivity() {
         binding.btnCustomDialog.setOnClickListener {
             var dialog = Dialog(this)
             dialog.setContentView(R.layout.custom_layout)
-            var btn=dialog.findViewById<Button>(R.id.btnCancel)
+//            var btn=dialog.findViewById<Button>(R.id.btnCancel)
 
             dialog.window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
             )
             dialog.show()
-            btn.setOnClickListener{
+            dialog.findViewById<Button>(R.id.btnCancel).setOnClickListener{
                 dialog.dismiss()
             }
         }

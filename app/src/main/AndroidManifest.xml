@@ -42,9 +42,12 @@
         <activity
             android:name=".SecondActivity"
             android:exported="false" />
+        <activity android:name=".list_package.ListBaseAdapterActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="false">
+
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
