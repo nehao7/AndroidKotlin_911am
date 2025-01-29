@@ -9,6 +9,7 @@
     <string name="to_do_items">To do Items</string>
     <string name="update">Update</string>
     <string name="delete">Delete</string>
+    <string name="activity">Activity</string>
 
 
     <string-array name="gender">

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
+import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
+import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -60,6 +62,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnListViewActivity.setOnClickListener {
             startActivity(Intent(this,ListActivity::class.java))
+        }
+        binding.btnBaseAdapterActivity.setOnClickListener {
+            startActivity(Intent(this,ListBaseAdapterActivity::class.java))
+        }
+        binding.btnBaseActivity.setOnClickListener {
+            startActivity(Intent(this,BaseActivity::class.java))
         }
     }
 

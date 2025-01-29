@@ -8,12 +8,19 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"
         />
+
+<pl.droidsonroids.gif.GifImageView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@drawable/animation"/>
 
     <EditText
         android:id="@+id/edtInput"
@@ -60,6 +67,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="List Activity" />
+
+<Button
+        android:id="@+id/btnBaseAdapterActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Base Adapter Activity" />
+<Button
+        android:id="@+id/btnBaseActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Base Activity" />
 
 
 </LinearLayout>
