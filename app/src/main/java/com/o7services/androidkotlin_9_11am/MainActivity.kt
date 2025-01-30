@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
 import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
+import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -68,6 +69,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnBaseActivity.setOnClickListener {
             startActivity(Intent(this,BaseActivity::class.java))
+        }
+        binding.btnRecyclerActivity.setOnClickListener {
+            startActivity(Intent(this,RecyclerActivity::class.java))
         }
     }
 

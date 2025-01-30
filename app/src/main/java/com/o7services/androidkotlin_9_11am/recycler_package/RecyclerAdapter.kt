@@ -1,0 +1,40 @@
+package com.o7services.androidkotlin_9_11am.recycler_package
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.o7services.androidkotlin4_6pmmcpc.fragments.InteractionInterface
+import com.o7services.androidkotlin_9_11am.R
+import com.o7services.androidkotlin_9_11am.list_package.Student
+
+class RecyclerAdapter(var list :ArrayList<Student>,var clickInterface: OnClick):RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
+    class Viewholder (var view: View):RecyclerView.ViewHolder(view){
+        var name=view.findViewById<TextView>(R.id.tvStuName)
+        var update=view.findViewById<Button>(R.id.btnUpdate)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.Viewholder {
+        var view=LayoutInflater.from(parent.context).inflate(R.layout.base_item_layout,parent,false)
+        return Viewholder(view)
+
+    }
+
+    override fun onBindViewHolder(holder: RecyclerAdapter.Viewholder, position: Int) {
+        holder.apply {
+            name.setText(list[position].name)
+            update.setOnClickListener{
+                clickInterface.update(position)
+            }
+}    }
+
+    override fun getItemCount(): Int {
+        return  list.size
+    }
+    interface OnClick{
+        fun update(position: Int)
+        fun delete(position: Int)
+    }
+}

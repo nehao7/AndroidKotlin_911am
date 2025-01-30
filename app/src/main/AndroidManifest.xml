@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AndroidKotlin_911am"
         tools:targetApi="31">
         <activity
+            android:name=".recycler_package.RecyclerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ListActivity"
             android:exported="false" />
         <activity
@@ -27,8 +30,9 @@
         <activity
             android:name=".SpinnerActivity"
             android:exported="false" />
-        <activity android:name=".fragment_activity_interaction.BaseActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".fragment_activity_interaction.BaseActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -44,12 +48,12 @@
         <activity
             android:name=".SecondActivity"
             android:exported="false" />
-        <activity android:name=".list_package.ListBaseAdapterActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".list_package.ListBaseAdapterActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false">
-
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
