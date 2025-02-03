@@ -16,23 +16,30 @@ class RecyclerActivity : AppCompatActivity(), RecyclerAdapter.OnClick {
     lateinit var binding: ActivityRecyclerBinding
     lateinit var recyclerAdapter: RecyclerAdapter
     var list= arrayListOf<Student>()
+    var Noteslist= arrayListOf<NotesEntity>()
+    lateinit var notesDatabase: NotesDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding=ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        notesDatabase=NotesDatabase.getInstance(this)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        notesDatabase.notesInterface().insertTodo(NotesEntity(title = "test New", description = "C++"))
+
         list.add(Student(1,"A","Sub"))
         list.add(Student(1,"B","Sub"))
         list.add(Student(1,"C","Sub"))
-        recyclerAdapter=RecyclerAdapter(list,this)
+        recyclerAdapter=RecyclerAdapter(Noteslist,this)
         binding.recycler.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         binding.recycler.adapter=recyclerAdapter
-
+        getList()
     }
 
     override fun update(position: Int) {
@@ -41,6 +48,13 @@ class RecyclerActivity : AppCompatActivity(), RecyclerAdapter.OnClick {
 
     override fun delete(position: Int) {
         Toast.makeText(this,"Delete Clicked", Toast.LENGTH_SHORT).show()
+        notesDatabase.notesInterface().deleteTodoEntity(Noteslist[position])
+        getList()
+        recyclerAdapter.notifyDataSetChanged()
+    }
 
+    private fun getList(){
+        Noteslist.clear()
+        Noteslist.addAll(notesDatabase.notesInterface().getList())
     }
 }

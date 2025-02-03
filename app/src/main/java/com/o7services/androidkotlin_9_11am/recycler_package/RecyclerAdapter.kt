@@ -10,10 +10,11 @@ import com.o7services.androidkotlin4_6pmmcpc.fragments.InteractionInterface
 import com.o7services.androidkotlin_9_11am.R
 import com.o7services.androidkotlin_9_11am.list_package.Student
 
-class RecyclerAdapter(var list :ArrayList<Student>,var clickInterface: OnClick):RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
+class RecyclerAdapter(var list :ArrayList<NotesEntity>,var clickInterface: OnClick):RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
     class Viewholder (var view: View):RecyclerView.ViewHolder(view){
         var name=view.findViewById<TextView>(R.id.tvStuName)
         var update=view.findViewById<Button>(R.id.btnUpdate)
+        var delete=view.findViewById<Button>(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.Viewholder {
@@ -24,9 +25,12 @@ class RecyclerAdapter(var list :ArrayList<Student>,var clickInterface: OnClick):
 
     override fun onBindViewHolder(holder: RecyclerAdapter.Viewholder, position: Int) {
         holder.apply {
-            name.setText(list[position].name)
+            name.setText(list[position].title)
             update.setOnClickListener{
                 clickInterface.update(position)
+            }
+            delete.setOnClickListener{
+                clickInterface.delete(position)
             }
 }    }
 
