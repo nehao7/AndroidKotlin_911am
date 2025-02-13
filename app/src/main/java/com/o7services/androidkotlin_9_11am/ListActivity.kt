@@ -26,17 +26,13 @@ class ListActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         array.add("four")
         arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, array)
-
         binding.listView .adapter= arrayAdapter
-
         binding.listView.setOnItemClickListener { parent, view, position, id ->
             Toast.makeText(this@ListActivity,"$position", Toast.LENGTH_SHORT).show()
             Log.e(TAG, "${parent.getItemAtPosition(position)}")
         }
-
         binding.listView.setOnItemLongClickListener { parent, view, position, id ->
             Toast.makeText(this@ListActivity, "", Toast.LENGTH_SHORT).show()
             return@setOnItemLongClickListener true

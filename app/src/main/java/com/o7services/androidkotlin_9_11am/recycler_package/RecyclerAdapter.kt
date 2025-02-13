@@ -10,7 +10,8 @@ import com.o7services.androidkotlin4_6pmmcpc.fragments.InteractionInterface
 import com.o7services.androidkotlin_9_11am.R
 import com.o7services.androidkotlin_9_11am.list_package.Student
 
-class RecyclerAdapter(var list :ArrayList<NotesEntity>,var clickInterface: OnClick):RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
+class RecyclerAdapter(var list :ArrayList<NotesEntity>,var clickInterface: OnClick)
+    :RecyclerView.Adapter<RecyclerAdapter.Viewholder>(){
     class Viewholder (var view: View):RecyclerView.ViewHolder(view){
         var name=view.findViewById<TextView>(R.id.tvStuName)
         var update=view.findViewById<Button>(R.id.btnUpdate)

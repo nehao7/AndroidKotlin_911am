@@ -18,6 +18,8 @@ class SplashActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding=ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        actionBar?.hide()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -28,6 +30,7 @@ class SplashActivity : AppCompatActivity() {
             {
             var intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+                finish()
         },2000)
     }
 }

@@ -31,6 +31,9 @@
             android:name=".SpinnerActivity"
             android:exported="false" />
         <activity
+            android:name=".bottomnavigation.BottomNavigationActivity"
+            android:exported="false" />
+        <activity
             android:name=".fragment_activity_interaction.BaseActivity"
             android:exported="false" />
         <activity

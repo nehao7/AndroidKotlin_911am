@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.o7solutions.invoice.MainActivity">
+
+    <item
+    android:id="@+id/fragment1"
+    android:title="Fragment One"
+    />
+    <item
+        android:id="@+id/fragment2"
+        android:title="Fragment Two"
+        />
+
+
+
+</menu>

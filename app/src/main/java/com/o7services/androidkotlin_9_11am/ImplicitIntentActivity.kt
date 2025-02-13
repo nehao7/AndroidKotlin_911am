@@ -26,7 +26,7 @@ class ImplicitIntentActivity : AppCompatActivity() {
         var getData=intent.getStringExtra("data")
         println(getData)
         textView?.setText(getData)
-        findViewById<EditText>(R.id.tvData).setText(getData)
+        findViewById<TextView>(R.id.tvData).setText(getData)
         findViewById<Button>(R.id.btnUrl).setOnClickListener {
             var intent= Intent(Intent.ACTION_VIEW)
             Intent()

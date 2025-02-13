@@ -10,8 +10,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
+import com.o7services.androidkotlin_9_11am.jetpacknav.NavControllerActivity
 import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
 
@@ -72,6 +74,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnRecyclerActivity.setOnClickListener {
             startActivity(Intent(this,RecyclerActivity::class.java))
+        }
+        binding.btnNavControllerActivity.setOnClickListener {
+            startActivity(Intent(this,NavControllerActivity::class.java))
+        }
+        binding.btnBottomNav.setOnClickListener {
+            startActivity(Intent(this,BottomNavigationActivity::class.java))
         }
     }
 
