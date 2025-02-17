@@ -12,6 +12,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
+import com.o7services.androidkotlin_9_11am.firebase.FireBaseActivity
+import com.o7services.androidkotlin_9_11am.firebase.RegisterActivity
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
 import com.o7services.androidkotlin_9_11am.jetpacknav.NavControllerActivity
 import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
@@ -80,6 +82,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnBottomNav.setOnClickListener {
             startActivity(Intent(this,BottomNavigationActivity::class.java))
+        }
+        binding.btnfirebase.setOnClickListener {
+            startActivity(Intent(this,FireBaseActivity::class.java))
         }
     }
 

@@ -95,11 +95,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NavController Activity" />
-  <Button
+
+        <Button
             android:id="@+id/btnBottomNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bottom Nav Activity" />
+
+        <Button
+            android:id="@+id/btnfirebase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Firebase Registration Activity" />
 
     </LinearLayout>
 </ScrollView>
