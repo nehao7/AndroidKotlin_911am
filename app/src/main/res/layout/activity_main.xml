@@ -108,5 +108,16 @@
             android:layout_height="wrap_content"
             android:text="Firebase Registration Activity" />
 
+        <Button
+            android:id="@+id/btnWebViewActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WebViewActivity" />
+  <Button
+            android:id="@+id/btnDrawerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DrawerLayoutActivity" />
+
     </LinearLayout>
 </ScrollView>

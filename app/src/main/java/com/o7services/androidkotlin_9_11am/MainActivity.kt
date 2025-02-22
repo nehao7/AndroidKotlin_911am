@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.o7services.androidkotlin_9_11am.DrawerLayout.NavDrawerActivity
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.firebase.FireBaseActivity
@@ -85,6 +86,13 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnfirebase.setOnClickListener {
             startActivity(Intent(this,FireBaseActivity::class.java))
+        }
+        binding.btnWebViewActivity.setOnClickListener {
+            startActivity(Intent(this,WebViewActivity::class.java))
+        }
+
+        binding.btnDrawerLayout.setOnClickListener {
+            startActivity(Intent(this,NavDrawerActivity::class.java))
         }
     }
 
