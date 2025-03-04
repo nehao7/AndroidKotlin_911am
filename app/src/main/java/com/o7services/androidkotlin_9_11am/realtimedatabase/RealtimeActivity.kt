@@ -40,10 +40,10 @@ class RealtimeActivity : AppCompatActivity(), ClickInterface {
 
         dbReference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                Log.e(TAG," snapshot ${snapshot.value}")
+                Log.e(TAG," snapshot before ${snapshot.value}")
                 val menuModel: MenuModel? = snapshot.getValue(MenuModel::class.java)
                 menuModel?.id = snapshot.key
-                Log.e(TAG," snapshot ${snapshot.value}")
+                Log.e(TAG," snapshot ${snapshot.value} id:${snapshot.key}")
 
                 if (menuModel != null) {
                     userList.add(menuModel)

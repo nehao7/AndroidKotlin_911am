@@ -38,4 +38,6 @@ class MenuAdapter(var userList:ArrayList<MenuModel>, var clickInterface: ClickIn
     override fun getItemCount(): Int {
         return userList.size
     }
+
+
 }

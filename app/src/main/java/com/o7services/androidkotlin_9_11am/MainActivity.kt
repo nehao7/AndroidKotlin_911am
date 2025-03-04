@@ -18,6 +18,7 @@ import com.o7services.androidkotlin_9_11am.firebase.RegisterActivity
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
 import com.o7services.androidkotlin_9_11am.jetpacknav.NavControllerActivity
 import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
+import com.o7services.androidkotlin_9_11am.realtimedatabase.RealtimeActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
 
 class MainActivity : AppCompatActivity() {
@@ -93,6 +94,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnDrawerLayout.setOnClickListener {
             startActivity(Intent(this,NavDrawerActivity::class.java))
+        }
+        binding.btnRealTimeDatabase.setOnClickListener {
+            startActivity(Intent(this,RealtimeActivity::class.java))
         }
     }
 

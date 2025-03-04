@@ -113,11 +113,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="WebViewActivity" />
-  <Button
+
+        <Button
             android:id="@+id/btnDrawerLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DrawerLayoutActivity" />
+
+        <Button
+            android:id="@+id/btnRealTimeDatabase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Realtime Database" />
 
     </LinearLayout>
 </ScrollView>
