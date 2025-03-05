@@ -20,6 +20,9 @@
             android:name=".realtimedatabase.RealtimeActivity"
             android:exported="false" />
         <activity
+            android:name=".firebase.FirestoreActivity"
+            android:exported="false" />
+        <activity
             android:name=".LocationActivity"
             android:exported="false" />
         <activity

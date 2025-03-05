@@ -126,5 +126,16 @@
             android:layout_height="wrap_content"
             android:text="Realtime Database" />
 
+        <Button
+            android:id="@+id/btnLocationActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location Activity" />
+
+        <Button
+            android:id="@+id/btnFirestore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Firestore Activity" />
     </LinearLayout>
 </ScrollView>

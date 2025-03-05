@@ -14,6 +14,7 @@ import com.o7services.androidkotlin_9_11am.DrawerLayout.NavDrawerActivity
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.firebase.FireBaseActivity
+import com.o7services.androidkotlin_9_11am.firebase.FirestoreActivity
 import com.o7services.androidkotlin_9_11am.firebase.RegisterActivity
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
 import com.o7services.androidkotlin_9_11am.jetpacknav.NavControllerActivity
@@ -97,6 +98,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnRealTimeDatabase.setOnClickListener {
             startActivity(Intent(this,RealtimeActivity::class.java))
+        }
+        binding.btnLocationActivity.setOnClickListener {
+            startActivity(Intent(this,LocationActivity::class.java))
+        }
+        binding.btnFirestore.setOnClickListener {
+            startActivity(Intent(this,FirestoreActivity::class.java))
         }
     }
 
