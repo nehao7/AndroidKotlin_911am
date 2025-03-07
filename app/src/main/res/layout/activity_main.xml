@@ -137,5 +137,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Firestore Activity" />
+        <Button
+            android:id="@+id/btnSharedPref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SharedPref Activity" />
     </LinearLayout>
 </ScrollView>

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AndroidKotlin_911am"
         tools:targetApi="31">
         <activity
+            android:name=".SharedPrefActivity"
+            android:exported="false" />
+        <activity
             android:name=".realtimedatabase.RealtimeActivity"
             android:exported="false" />
         <activity

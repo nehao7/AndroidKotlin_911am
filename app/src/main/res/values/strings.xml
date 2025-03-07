@@ -16,6 +16,9 @@
     <string name="logout">Logout</string>
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <string name="change_app_color_mode">Change App Mode</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
 
 
     <string-array name="gender">

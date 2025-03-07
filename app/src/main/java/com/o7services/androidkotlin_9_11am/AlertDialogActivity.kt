@@ -67,7 +67,7 @@ class AlertDialogActivity : AppCompatActivity() {
         binding.btnSingleChoice.setOnClickListener {
             AlertDialog.Builder(this).apply {
                 setTitle("My List")
-                setItems(list) { _, which ->
+                setItems(list){ _, which ->
                     Toast.makeText(
                         this@AlertDialogActivity,
                         list[which].toString(), Toast.LENGTH_LONG

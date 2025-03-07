@@ -105,6 +105,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnFirestore.setOnClickListener {
             startActivity(Intent(this,FirestoreActivity::class.java))
         }
+        binding.btnSharedPref.setOnClickListener {
+            startActivity(Intent(this,SharedPrefActivity::class.java))
+        }
     }
 
     override fun onStart() {
