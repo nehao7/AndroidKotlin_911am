@@ -2,14 +2,20 @@ package com.o7services.androidkotlin_9_11am
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.o7services.androidkotlin_9_11am.DrawerLayout.NavDrawerActivity
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
@@ -27,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     var btn: Button? = null
     var btnRelative: Button? = null
     var input: EditText? = null
+    private val TAG = "FCM Logs"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show()
         btn = findViewById(R.id.btnWelcome)
         btnRelative = findViewById(R.id.RelativeLayout)
         input = findViewById(R.id.edtInput)
@@ -44,6 +51,29 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Request permission for API 33+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+
+                requestPermission()
+            }
+        }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            Log.d(TAG, token)
+
+        })
+
 
         btn?.setOnClickListener {
             Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
@@ -110,34 +140,39 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), 101)
+        }
+    }
     override fun onStart() {
         super.onStart()
-        Toast.makeText(this, "OnStart", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnStart", Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {
         super.onResume()
-        Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show()
     }
 
     override fun onPause() {
         super.onPause()
-        Toast.makeText(this, "OnPause", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Toast.makeText(this, "OnDestroy", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnDestroy", Toast.LENGTH_SHORT).show()
     }
 
     override fun onRestart() {
         super.onRestart()
-        Toast.makeText(this, "OnRestart", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnRestart", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
-        Toast.makeText(this, "OnStop", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "OnStop", Toast.LENGTH_SHORT).show()
     }
 
 }
