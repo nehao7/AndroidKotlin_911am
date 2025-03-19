@@ -142,5 +142,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SharedPref Activity" />
+        <Button
+            android:id="@+id/btnToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toolbar Activity" />
+        <Button
+            android:id="@+id/btnPay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Payment Activity" />
     </LinearLayout>
 </ScrollView>

@@ -138,6 +138,12 @@ class MainActivity : AppCompatActivity() {
         binding.btnSharedPref.setOnClickListener {
             startActivity(Intent(this,SharedPrefActivity::class.java))
         }
+        binding.btnToolbar.setOnClickListener {
+            startActivity(Intent(this,ToolbarActivity::class.java))
+        }
+        binding.btnPay.setOnClickListener {
+            startActivity(Intent(this,PaymentActivity::class.java))
+        }
     }
 
     private fun requestPermission() {

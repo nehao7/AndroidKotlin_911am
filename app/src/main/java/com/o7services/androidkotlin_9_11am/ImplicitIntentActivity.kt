@@ -29,7 +29,6 @@ class ImplicitIntentActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvData).setText(getData)
         findViewById<Button>(R.id.btnUrl).setOnClickListener {
             var intent= Intent(Intent.ACTION_VIEW)
-            Intent()
             intent.setData(Uri.parse("https://o7services.com/"))
             startActivity(intent)
         }
