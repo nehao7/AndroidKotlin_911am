@@ -1,5 +1,6 @@
 package com.o7services.androidkotlin_9_11am
 
+import android.content.IntentFilter
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -11,6 +12,7 @@ import com.razorpay.Checkout
 import com.razorpay.ExternalWalletListener
 import com.razorpay.PaymentData
 import com.razorpay.PaymentResultWithDataListener
+import com.razorpay.SmsReceiver
 import org.json.JSONObject
 
 class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, ExternalWalletListener {
@@ -23,6 +25,7 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         findViewById<Button>(R.id.btnPay).setOnClickListener {
             startPayment()
         }
@@ -39,7 +42,7 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
 
         try {
             val options = JSONObject()
-            options.put("name","Rajat")
+            options.put("name","Neha")
 //            options.put("description","Demoing Charges")
             //You can comment the image option to fetch the image from the dashboard
             options.put("image",R.drawable.ic_launcher_background)

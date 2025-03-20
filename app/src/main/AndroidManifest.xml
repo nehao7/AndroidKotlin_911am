@@ -106,7 +106,8 @@
 
         <receiver
             android:name="com.razorpay.RzpTokenReceiver"
-            android:exported="true">
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="rzp.device_token.share" />
             </intent-filter>
@@ -116,8 +117,9 @@
             android:name="com.razorpay.CheckoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:exported="true"
+            tools:replace="android:exported,android:theme"
             android:theme="@style/Base.Theme.AndroidKotlin_911am"
-            tools:replace="android:theme">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
