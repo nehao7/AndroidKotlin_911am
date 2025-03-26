@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.o7services.androidkotlin_9_11am.DrawerLayout.NavDrawerActivity
+import com.o7services.androidkotlin_9_11am.api_integration.DirectApiActivity
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.firebase.FireBaseActivity
@@ -141,8 +142,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnToolbar.setOnClickListener {
             startActivity(Intent(this,ToolbarActivity::class.java))
         }
-        binding.btnPay.setOnClickListener {
-            startActivity(Intent(this,PaymentActivity::class.java))
+        binding.btnApi.setOnClickListener {
+            startActivity(Intent(this,DirectApiActivity::class.java))
         }
     }
 
