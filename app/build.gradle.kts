@@ -38,6 +38,8 @@ android {
 
     buildFeatures.viewBinding=true
     buildFeatures.dataBinding=true
+    buildFeatures.buildConfig = true
+
 
 }
 
@@ -57,6 +59,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    //maps
+    implementation(libs.play.services.maps)
+    implementation(libs.play.services.location)
     //gif dependancy
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
     //room
@@ -74,5 +79,16 @@ dependencies {
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //ViewModel
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // Coroutine Lifecycle Scopes
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
 
 }
