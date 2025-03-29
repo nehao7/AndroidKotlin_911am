@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AndroidKotlin_911am"
         tools:targetApi="31">
         <activity
+            android:name=".maps_implementation.MapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".api_integration.DirectApiActivity"
             android:exported="false" />
         <activity
@@ -130,6 +133,7 @@
             </intent-filter>
         </activity>
 
+
         <service
             android:name=".FireBaseServices"
             android:enabled="true"
@@ -138,6 +142,9 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBpfZ7UKwP2KOuoI1Mv7YG1OO76g-lNtqA"/>
+
     </application>
 
 </manifest>

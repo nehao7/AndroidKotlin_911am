@@ -22,8 +22,9 @@
     <string name="change_app_color_mode">Change App Mode</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="light_mode">Light Mode</string>
-
-
+    <string name="address_not_found">Address not found</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
     <string-array name="gender">
         <item name="select">Select your gender</item>
         <item name="male">Male</item>

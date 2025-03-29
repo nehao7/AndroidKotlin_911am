@@ -26,6 +26,7 @@ import com.o7services.androidkotlin_9_11am.firebase.RegisterActivity
 import com.o7services.androidkotlin_9_11am.fragment_activity_interaction.BaseActivity
 import com.o7services.androidkotlin_9_11am.jetpacknav.NavControllerActivity
 import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
+import com.o7services.androidkotlin_9_11am.maps_implementation.MapsActivity
 import com.o7services.androidkotlin_9_11am.realtimedatabase.RealtimeActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
 
@@ -144,6 +145,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnApi.setOnClickListener {
             startActivity(Intent(this,DirectApiActivity::class.java))
+        }
+        binding.btnMaps.setOnClickListener {
+            startActivity(Intent(this,MapsActivity::class.java))
         }
     }
 
