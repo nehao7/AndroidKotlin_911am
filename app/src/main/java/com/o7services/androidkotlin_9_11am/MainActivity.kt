@@ -29,6 +29,8 @@ import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
 import com.o7services.androidkotlin_9_11am.maps_implementation.MapsActivity
 import com.o7services.androidkotlin_9_11am.realtimedatabase.RealtimeActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
+import com.o7services.androidkotlin_9_11am.video_view.ExoPlayerVideoActivity
+import com.o7services.androidkotlin_9_11am.video_view.PickVideoActivity
 import com.o7services.androidkotlin_9_11am.video_view.VideoViewActivity
 
 class MainActivity : AppCompatActivity() {
@@ -152,6 +154,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnVideoView.setOnClickListener {
             startActivity(Intent(this,VideoViewActivity::class.java))
+        }
+        binding.btnExoplayerView.setOnClickListener {
+            startActivity(Intent(this,ExoPlayerVideoActivity::class.java))
+        }
+        binding.btnPickVideo.setOnClickListener {
+            startActivity(Intent(this,PickVideoActivity::class.java))
         }
     }
 

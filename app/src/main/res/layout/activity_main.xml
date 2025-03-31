@@ -168,5 +168,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="VideoView Activity" />
+        <Button
+            android:id="@+id/btnExoplayerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ExoplayerView Activity" />
+        <Button
+            android:id="@+id/btnPickVideo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PickVideo Activity" />
     </LinearLayout>
 </ScrollView>
