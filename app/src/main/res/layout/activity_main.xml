@@ -162,5 +162,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Maps Activity" />
+
+        <Button
+            android:id="@+id/btnVideoView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="VideoView Activity" />
     </LinearLayout>
 </ScrollView>

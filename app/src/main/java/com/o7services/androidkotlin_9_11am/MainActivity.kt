@@ -29,6 +29,7 @@ import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
 import com.o7services.androidkotlin_9_11am.maps_implementation.MapsActivity
 import com.o7services.androidkotlin_9_11am.realtimedatabase.RealtimeActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
+import com.o7services.androidkotlin_9_11am.video_view.VideoViewActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -147,7 +148,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,DirectApiActivity::class.java))
         }
         binding.btnMaps.setOnClickListener {
-            startActivity(Intent(this,MapsActivity::class.java))
+            startActivity(Intent(this, MapsActivity::class.java))
+        }
+        binding.btnVideoView.setOnClickListener {
+            startActivity(Intent(this,VideoViewActivity::class.java))
         }
     }
 

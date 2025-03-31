@@ -59,9 +59,11 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    //maps
-    implementation(libs.play.services.maps)
-    implementation(libs.play.services.location)
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
+    implementation("com.google.android.gms:play-services-location:18.1.0")
+//    //maps
+//    implementation(libs.play.services.maps)
+//    implementation(libs.play.services.location)
     //gif dependancy
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
     //room
