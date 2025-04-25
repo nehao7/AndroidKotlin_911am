@@ -148,6 +148,9 @@ class MainActivity : AppCompatActivity() {
         binding.btnToolbar.setOnClickListener {
             startActivity(Intent(this,ToolbarActivity::class.java))
         }
+        binding.btnPay.setOnClickListener {
+            startActivity(Intent(this, PaymentActivity::class.java))
+        }
         binding.btnApi.setOnClickListener {
             startActivity(Intent(this,DirectApiActivity::class.java))
         }

@@ -1,10 +1,15 @@
 package com.o7services.androidkotlin_9_11am
 
+import android.app.Activity
+import android.content.Intent
 import android.content.IntentFilter
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -16,6 +21,8 @@ import com.razorpay.SmsReceiver
 import org.json.JSONObject
 
 class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, ExternalWalletListener {
+
+    private lateinit var upiPaymentLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,11 +33,83 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             insets
         }
 
+        upiPaymentLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK || result.resultCode == 11) {
+                val data = result.data
+                if (data != null) {
+                    val response = data.getStringExtra("response") ?: ""
+                    parseUpiResponse(response)
+                } else {
+                    Toast.makeText(this, "Payment cancelled or failed", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Payment not successful", Toast.LENGTH_SHORT).show()
+            }
+        }
         findViewById<Button>(R.id.btnPay).setOnClickListener {
             startPayment()
         }
+ findViewById<Button>(R.id.btnUpi).setOnClickListener {
+     payUsingUpi("Neha", "nehabasra100@okicici", "Monthly Subscription", "1.00")        }
+
+//        val uri = Uri.parse("upi://pay").buildUpon()
+//            .appendQueryParameter("pa", "user@upi") // Payee VPA
+//            .appendQueryParameter("pn", "Payee Name")
+//            .appendQueryParameter("mc", "")
+//            .appendQueryParameter("tr", "TxnRef123")
+//            .appendQueryParameter("tn", "Note for payment")
+//            .appendQueryParameter("am", "100.00")
+//            .appendQueryParameter("cu", "INR")
+//            .build()
+//
+//        val intent = Intent(Intent.ACTION_VIEW).apply {
+//            data = uri
+//        }
+//        startActivityForResult(intent, 100)
+    }
+    private fun parseUpiResponse(response: String) {
+        var status = ""
+        var approvalRefNo = ""
+
+        val responseList = response.split("&")
+        for (pair in responseList) {
+            val parts = pair.split("=")
+            if (parts.size >= 2) {
+                when (parts[0].lowercase()) {
+                    "status" -> status = parts[1].lowercase()
+                    "approvalrefno", "txnref" -> approvalRefNo = parts[1]
+                }
+            }
+        }
+
+        when (status) {
+            "success" -> Toast.makeText(this, "Transaction successful: $approvalRefNo", Toast.LENGTH_LONG).show()
+            "failure" -> Toast.makeText(this, "Transaction failed", Toast.LENGTH_LONG).show()
+            else -> Toast.makeText(this, "Payment cancelled", Toast.LENGTH_LONG).show()
+        }
     }
 
+
+    fun payUsingUpi(name: String, upiId: String, note: String, amount: String) {
+        val uri = Uri.parse("upi://pay").buildUpon()
+            .appendQueryParameter("pa", upiId)
+            .appendQueryParameter("pn", name)
+            .appendQueryParameter("tn", note)
+            .appendQueryParameter("am", amount)
+            .appendQueryParameter("cu", "INR")
+            .build()
+
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            data = uri
+        }
+
+        val chooser = Intent.createChooser(intent, "Pay with UPI")
+        if (chooser.resolveActivity(packageManager) != null) {
+            upiPaymentLauncher.launch(chooser)
+        } else {
+            Toast.makeText(this, "No UPI app found!", Toast.LENGTH_SHORT).show()
+        }
+    }
     private fun startPayment(){
 
         Checkout.preload(this)
@@ -59,6 +138,9 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             val prefill = JSONObject()
             prefill.put("email","abc@gmail.com")
             prefill.put("contact","1234567890")
+
+
+            options.put("upi", true)  // This opens UPI apps for payment
 
             options.put("prefill",prefill)
             co.open(this,options)
