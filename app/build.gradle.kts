@@ -97,4 +97,10 @@ dependencies {
     implementation ("androidx.media3:media3-exoplayer-dash:1.3.1")
     implementation ("androidx.media3:media3-ui:1.3.1")
 
+    //    Chatbot
+    implementation("com.google.ai.client.generativeai:generativeai:0.2.1")
+    implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
 }

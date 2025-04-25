@@ -19,7 +19,8 @@ class PickVideoActivity : AppCompatActivity() {
     private val binding:ActivityPickVideoBinding by lazy {
         ActivityPickVideoBinding.inflate(layoutInflater)
     }
-    private val pickVideo = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val pickVideo = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val videoUri: Uri? = result.data?.data
             println("VideoUri : $videoUri")
@@ -62,7 +63,7 @@ class PickVideoActivity : AppCompatActivity() {
 
             binding.videoView.setOnErrorListener { mp, what, extra ->
             Toast.makeText(this, "Video playback error.", Toast.LENGTH_SHORT).show()
-            true // Indicate that you handled the error.
+            true
         }
 
     } catch (e: Exception) {

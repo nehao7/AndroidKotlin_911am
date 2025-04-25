@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/animation" />
 
+
         <EditText
             android:id="@+id/edtInput"
             android:layout_width="match_parent"
@@ -178,5 +179,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="PickVideo Activity" />
+        <Button
+            android:id="@+id/btnSensorActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sensor Activity" />
+        <Button
+            android:id="@+id/btnChatBotActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ChatBot Activity" />
     </LinearLayout>
 </ScrollView>

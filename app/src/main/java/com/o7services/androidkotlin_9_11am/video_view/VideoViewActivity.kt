@@ -28,15 +28,9 @@ class VideoViewActivity : AppCompatActivity() {
             insets
         }
 
-        if (!::mediaControls.isInitialized) {
 
             mediaControls = MediaController(this)
-
-
             mediaControls.setAnchorView(this.binding.videoView)
-        }
-
-
         binding.videoView.setMediaController(mediaControls)
         binding.videoView.setVideoURI(Uri.parse("android.resource://"
                 + packageName + "/" + R.raw.test_video))

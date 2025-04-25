@@ -19,6 +19,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.o7services.androidkotlin_9_11am.DrawerLayout.NavDrawerActivity
 import com.o7services.androidkotlin_9_11am.api_integration.DirectApiActivity
 import com.o7services.androidkotlin_9_11am.bottomnavigation.BottomNavigationActivity
+import com.o7services.androidkotlin_9_11am.chatbot.ChatbotActivity
 import com.o7services.androidkotlin_9_11am.databinding.ActivityMainBinding
 import com.o7services.androidkotlin_9_11am.firebase.FireBaseActivity
 import com.o7services.androidkotlin_9_11am.firebase.FirestoreActivity
@@ -29,6 +30,7 @@ import com.o7services.androidkotlin_9_11am.list_package.ListBaseAdapterActivity
 import com.o7services.androidkotlin_9_11am.maps_implementation.MapsActivity
 import com.o7services.androidkotlin_9_11am.realtimedatabase.RealtimeActivity
 import com.o7services.androidkotlin_9_11am.recycler_package.RecyclerActivity
+import com.o7services.androidkotlin_9_11am.sensor.SensorActivity
 import com.o7services.androidkotlin_9_11am.video_view.ExoPlayerVideoActivity
 import com.o7services.androidkotlin_9_11am.video_view.PickVideoActivity
 import com.o7services.androidkotlin_9_11am.video_view.VideoViewActivity
@@ -160,6 +162,12 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnPickVideo.setOnClickListener {
             startActivity(Intent(this,PickVideoActivity::class.java))
+        }
+        binding.btnSensorActivity.setOnClickListener {
+            startActivity(Intent(this, SensorActivity::class.java))
+        }
+        binding.btnChatBotActivity.setOnClickListener {
+            startActivity(Intent(this, ChatbotActivity::class.java))
         }
     }
 
