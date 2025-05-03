@@ -50,7 +50,7 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             startPayment()
         }
  findViewById<Button>(R.id.btnUpi).setOnClickListener {
-     payUsingUpi("Neha", "nehabasra100@okicici", "Monthly Subscription", "1.00")        }
+     payUsingUpi("Neha Basra", "nehabasra100@okicici", "Monthly Subscription", "1.00")        }
 
 //        val uri = Uri.parse("upi://pay").buildUpon()
 //            .appendQueryParameter("pa", "user@upi") // Payee VPA
@@ -89,7 +89,6 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
         }
     }
 
-
     fun payUsingUpi(name: String, upiId: String, note: String, amount: String) {
         val uri = Uri.parse("upi://pay").buildUpon()
             .appendQueryParameter("pa", upiId)
@@ -110,6 +109,7 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             Toast.makeText(this, "No UPI app found!", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun startPayment(){
 
         Checkout.preload(this)
@@ -117,11 +117,11 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
         val co = Checkout()
         // apart from setting it in AndroidManifest.xml, keyId can also be set
         // programmatically during runtime
-        co.setKeyID("rzp_test_c51XgNNFUQLpLP")
+        co.setKeyID("rzp_test_IfhAqGdtgoZXyq")
 
         try {
             val options = JSONObject()
-            options.put("name","Neha")
+            options.put("name","Neha Basra")
 //            options.put("description","Demoing Charges")
             //You can comment the image option to fetch the image from the dashboard
             options.put("image",R.drawable.ic_launcher_background)
@@ -136,8 +136,8 @@ class PaymentActivity : AppCompatActivity(),PaymentResultWithDataListener, Exter
             options.put("retry", retryObj)
 
             val prefill = JSONObject()
-            prefill.put("email","abc@gmail.com")
-            prefill.put("contact","1234567890")
+            prefill.put("email","nehabasra100@gmail.com")
+            prefill.put("contact","7717264758")
 
 
             options.put("upi", true)  // This opens UPI apps for payment

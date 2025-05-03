@@ -160,9 +160,9 @@
             </intent-filter>
         </service>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBpfZ7UKwP2KOuoI1Mv7YG1OO76g-lNtqA" />
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="${MY_SECRET_KEY}"/>
+
     </application>
 
 </manifest>

@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -5,6 +7,12 @@ plugins {
     alias(libs.plugins.google.gms.google.services)
 }
 
+    val localProperties = Properties().apply {
+        val file = rootProject.file("local.properties")
+        if (file.exists()) {
+            file.inputStream().use { load(it) }
+        }
+    }
 android {
     namespace = "com.o7services.androidkotlin_9_11am"
     compileSdk = 35
@@ -39,6 +47,14 @@ android {
     buildFeatures.viewBinding=true
     buildFeatures.dataBinding=true
     buildFeatures.buildConfig = true
+//    defaultConfig {
+//        val secretKey = localProperties.getProperty("MY_SECRET_KEY") ?: "default_key"
+//        manifestPlaceholders["MY_SECRET_KEY"] = secretKey
+//    }
+    defaultConfig {
+        val googleMapsKey = localProperties.getProperty("MY_SECRET_KEY") ?: "DUMMY_KEY"
+        manifestPlaceholders["MY_SECRET_KEY"] = googleMapsKey
+    }
 
 
 }
@@ -76,7 +92,6 @@ dependencies {
     implementation ("com.google.android.libraries.places:places:3.5.0")
     //razorpay
     implementation ("com.razorpay:checkout:1.6.39")
-
     //retrofit
 
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -102,5 +117,6 @@ dependencies {
     implementation ("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
+//    implementation ("com.shreyaspatil:EasyUpiPayment:2.0")
 
 }
