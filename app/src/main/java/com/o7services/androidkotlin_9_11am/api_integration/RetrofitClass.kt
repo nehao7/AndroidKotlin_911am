@@ -11,4 +11,11 @@ object RetrofitClass {
             .build()
             .create(ApiInterface::class.java)
     }
+    val delinstance: ApiInterface by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://api.restful-api.dev/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiInterface::class.java)
+    }
 }

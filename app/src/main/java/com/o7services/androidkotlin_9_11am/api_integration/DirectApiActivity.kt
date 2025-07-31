@@ -2,6 +2,7 @@ package com.o7services.androidkotlin_9_11am.api_integration
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,6 +10,10 @@ import androidx.core.view.WindowInsetsCompat
 import com.o7services.androidkotlin_9_11am.R
 import com.o7services.androidkotlin_9_11am.databinding.ActivityDirectApiBinding
 import com.shruti.apiintegrationapp.RetrofitClass
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +31,7 @@ class DirectApiActivity : AppCompatActivity() {
             insets
         }
         fetchQuotes()
+        deleteItemById(id = "ff8081819782e69e01985f16526e359b")
     }
 
     fun fetchQuotes(){
@@ -54,5 +60,19 @@ class DirectApiActivity : AppCompatActivity() {
                 Log.e("API Error ", "Request failed : ${t.message}")
             }
         })
+    }
+
+    fun deleteItemById(id: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            var response = RetrofitClass.delinstance.deleteObject(id)
+            if (response.isSuccessful) {
+                var result = response.body()
+                Log.d("Delete Api","${result?.message}")
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@DirectApiActivity, "${result?.message}", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        }
     }
 }
