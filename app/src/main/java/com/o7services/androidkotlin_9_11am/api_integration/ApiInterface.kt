@@ -16,6 +16,6 @@ interface ApiInterface {
     fun listQuotes() : Call<QuotesDataClass>
 
     @DELETE("objects/{id}")
-    suspend fun deleteObject(@Path("id") id: String): Response<DeleteApiModel>
+    suspend fun deleteObject(@Path("id") id: String): Response<Unit>
 
 }

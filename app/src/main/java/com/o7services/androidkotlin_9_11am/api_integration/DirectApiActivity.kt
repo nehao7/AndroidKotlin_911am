@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 import com.o7services.androidkotlin_9_11am.R
 import com.o7services.androidkotlin_9_11am.databinding.ActivityDirectApiBinding
 import com.shruti.apiintegrationapp.RetrofitClass
@@ -31,7 +32,7 @@ class DirectApiActivity : AppCompatActivity() {
             insets
         }
         fetchQuotes()
-        deleteItemById(id = "ff8081819782e69e01985f16526e359b")
+        deleteItemById(id = "ff8081819782e69e0198646963eb533c")
     }
 
     fun fetchQuotes(){
@@ -64,12 +65,31 @@ class DirectApiActivity : AppCompatActivity() {
 
     fun deleteItemById(id: String) {
         CoroutineScope(Dispatchers.IO).launch {
+            try {
             var response = RetrofitClass.delinstance.deleteObject(id)
+            var result = response.body()
             if (response.isSuccessful) {
-                var result = response.body()
-                Log.d("Delete Api","${result?.message}")
+                val res = response.body()?.toString()
+                val resbody = Gson().fromJson(res, DeleteApiModel::class.java)
+                Log.d("Delete Api", "Success:${resbody.message} ")
+//                Log.d("Delete Api","${result?.message}")
                 withContext(Dispatchers.Main){
-                    Toast.makeText(this@DirectApiActivity, "${result?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@DirectApiActivity, "${resbody?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+
+                val errorBody = response.errorBody()?.string()
+                val errorbody = Gson().fromJson(errorBody, ErrorModel::class.java)
+                Log.d("Delete Api", "Failed:${errorbody.error} ")
+                withContext(Dispatchers.Main){
+                    Toast.makeText(this@DirectApiActivity, "${errorbody?.error}", Toast.LENGTH_SHORT).show()
+
+                }
+
+            }
+            }catch (e:Exception){
+                Log.d("Delete Api", "Error:${e.message}")
+                withContext(Dispatchers.Main){
 
                 }
             }
