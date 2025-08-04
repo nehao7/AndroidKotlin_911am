@@ -2,19 +2,12 @@ package com.o7services.androidkotlin_9_11am.api_integration
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.gson.Gson
 import com.o7services.androidkotlin_9_11am.R
 import com.o7services.androidkotlin_9_11am.databinding.ActivityDirectApiBinding
-import com.shruti.apiintegrationapp.RetrofitClass
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +25,6 @@ class DirectApiActivity : AppCompatActivity() {
             insets
         }
         fetchQuotes()
-        deleteItemById(id = "ff8081819782e69e0198646963eb533c")
     }
 
     fun fetchQuotes(){
@@ -63,36 +55,4 @@ class DirectApiActivity : AppCompatActivity() {
         })
     }
 
-    fun deleteItemById(id: String) {
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-            var response = RetrofitClass.delinstance.deleteObject(id)
-            var result = response.body()
-            if (response.isSuccessful) {
-                val res = response.body()?.toString()
-                val resbody = Gson().fromJson(res, DeleteApiModel::class.java)
-                Log.d("Delete Api", "Success:${resbody.message} ")
-//                Log.d("Delete Api","${result?.message}")
-                withContext(Dispatchers.Main){
-                    Toast.makeText(this@DirectApiActivity, "${resbody?.message}", Toast.LENGTH_SHORT).show()
-                }
-            }else{
-
-                val errorBody = response.errorBody()?.string()
-                val errorbody = Gson().fromJson(errorBody, ErrorModel::class.java)
-                Log.d("Delete Api", "Failed:${errorbody.error} ")
-                withContext(Dispatchers.Main){
-                    Toast.makeText(this@DirectApiActivity, "${errorbody?.error}", Toast.LENGTH_SHORT).show()
-
-                }
-
-            }
-            }catch (e:Exception){
-                Log.d("Delete Api", "Error:${e.message}")
-                withContext(Dispatchers.Main){
-
-                }
-            }
-        }
-    }
 }
